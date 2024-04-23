@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Unix Timestamp Converter</title>
+  </head>
+  <body>
+    <input type="text" id="timestampInput" placeholder="Unix timestamp" />
+    <div id="dateTimeDisplay"></div>
+
+    <script>
+      document
+        .getElementById("timestampInput")
+        .addEventListener("input", function () {
+          const input = this.value.padEnd(10, "0");
+          const timestamp = parseInt(input);
+          if (!isNaN(timestamp)) {
+            const date = new Date(timestamp * 1000);
+            document.getElementById("dateTimeDisplay").textContent =
+              date.toString();
+          } else {
+            document.getElementById("dateTimeDisplay").textContent =
+              "Invalid input";
+          }
+        });
+    </script>
+  </body>
+</html>
